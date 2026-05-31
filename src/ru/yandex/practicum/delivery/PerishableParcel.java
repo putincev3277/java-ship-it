@@ -10,7 +10,7 @@ public class PerishableParcel extends Parcel {
 
     @Override
     protected double getBaseCost() {
-        return BASE_COST_PERISHABLE;
+        return ParcelType.PERISHABLE.getBaseCost();
     }
 
     public boolean isExpired(int currentDay) {

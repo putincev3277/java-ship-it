@@ -8,7 +8,7 @@ public class FragileParcel extends Parcel implements Trackable {
 
     @Override
     protected double getBaseCost() {
-        return BASE_COST_FRAGILE;
+        return ParcelType.FRAGILE.getBaseCost();
     }
 
     @Override

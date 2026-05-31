@@ -1,10 +1,7 @@
 package ru.yandex.practicum.delivery;
 
 public abstract class Parcel {
-    // Константы базовой стоимости для разных типов посылок
-    protected static final double BASE_COST_STANDARD = 2.0;
-    protected static final double BASE_COST_PERISHABLE = 3.0;
-    protected static final double BASE_COST_FRAGILE = 4.0;
+
 
     protected String description;
     protected int weight;
@@ -23,11 +20,12 @@ public abstract class Parcel {
         return description;
     }
 
-    protected abstract double getBaseCost();
 
     public double calculateDeliveryCost() {
         return weight * getBaseCost();
     }
+
+    protected abstract double getBaseCost();
 
     public void packageItem() {
 

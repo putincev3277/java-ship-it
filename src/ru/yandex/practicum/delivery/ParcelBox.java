@@ -3,6 +3,7 @@ package ru.yandex.practicum.delivery;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ParcelBox<T extends Parcel> {
     private final List<T> parcels;
     private final double maxWeight; // максимальный допустимый вес коробки
@@ -20,13 +21,18 @@ public class ParcelBox<T extends Parcel> {
 
     public void addParcel(T parcel) {
         if (currentWeight + parcel.weight > maxWeight) {
-            System.out.println("Предупреждение: не удалось добавить посылку " +
-                    parcel.getDescription() + ". Превышен максимальный вес коробки.");
-            return;
+            System.out.printf(
+                    "Предупреждение: не удалось добавить посылку %s. Превышен максимальный вес коробки.%n",
+                    parcel.getDescription()
+            );
+        } else {
+            parcels.add(parcel);
+            currentWeight += parcel.weight;
+            System.out.printf(
+                    "Посылка %s успешно добавлена в коробку.%n",
+                    parcel.getDescription()
+            );
         }
-        parcels.add(parcel);
-        currentWeight += parcel.weight;
-        System.out.println("Посылка " + parcel.getDescription() + " успешно добавлена в коробку.");
     }
 
     // Возвращает список всех посылок в коробке.
